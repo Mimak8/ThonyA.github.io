@@ -1,0 +1,58 @@
+body {
+    font-family: 'Times New Roman', Courier, monospace;
+    text-align: center;
+    background-image: url('images/IMG_1456.JPG'); /* Replace 'background.jpg' with the path to your image file */
+    background-size: cover; /* Cover ensures the background covers the entire page */
+    background-position: center; /* Centers the background image on the page */
+    margin: 0;
+    padding: 20px;
+    color: #333; /* Dark grey text */
+}
+
+
+nav#navbar {
+    margin: 20px 0;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav#navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav#navbar ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav#navbar ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+#board {
+    width: 600px; /* Adjust based on your game's needs */
+    height: 600px; /* Adjust based on your game's needs */
+    margin: 20px auto;
+    background-color: black;
+    position: relative; /* Needed for positioning the snake and food */
+}
+
+h1 {
+    color: #310557;
+
+}
+
+#title {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Add any specific styles for your turns counter or other elements here */
+#turns {
+    font-size: 1.5em;
+    color: #444;
+}

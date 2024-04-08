@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Letter Jar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="planet-container">
+        <div class="planet" id="planet1" style="background-color: blueviolet;" onclick="promptPassword('planet1')">T</div>
+        <div class="planet" id="planet2" style="background-color: blue;" onclick="promptPassword('planet2')"> H  </div>
+        <div class="planet" id="planet3" style="background-color: burlywood;" onclick="promptPassword('planet3')">  O  </div>
+        <div class="planet" id="planet4" style="background-color: palegoldenrod;" onclick="promptPassword('planet4')">  N  </div>
+        <div class="planet" id="planet5" style="background-color: plum" onclick="promptPassword('planet5')">  Y  </div>
+      </div>
+      
+      <!-- Hidden modal for entering the password -->
+      <div id="password-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h2>Enter Password for <span id="planet-name"></span></h2>
+          <input type="password" id="password-input" placeholder="Enter password">
+          <button onclick="checkPassword()">Open Letter</button>
+          <p id="password-error" style="display: none;">Incorrect password, please try again.</p>
+        </div>
+      </div>
+      
+      <!-- Hidden content for each letter -->
+      <div id="letter-content" class="hidden-content">
+        <div id="letter1" class="letter">Content for Letter 1</div>
+        <div id="letter2" class="letter">Content for Letter 2</div>
+        <div id="letter3" class="letter">Content for Letter 3</div>
+        <div id="letter4" class="letter">Content for Letter 4</div>
+        <div id="letter5" class="letter">Content for Letter 5</div>
+      </div>
+
+      
+      <script>
+        
+        var passwords = {
+            "planet1": "8/04/2023", // Will replace later with actual password
+            "planet2": "8 Aout",
+            "planet3": "Jemm",
+            "planet4": "Ketsia",
+            "planet5": "Good for you",
+        }
+
+        function promptPassword(planetId) {
+            document.getElementById('password-modal').style.display = 'block';
+            document.getElementById('planet-name').textContent = planetId;
+            sessionStorage.setItem('currentPlanet', planetId);
+        }
+            
+        function checkPassword() {
+            var enteredPassword = document.getElementById('password-input').value;
+            var planetId = sessionStorage.getItem('currentPlanet');
+            var correctPassword = passwords[planetId]; // This should be the correct password for the planet
+
+        //Logic to check password
+            if (enteredPassword === correctPassword) {
+            
+                window.location.href = planetId + '.html';
+            } else {
+               document.getElementById('password-error').style.display = 'block'; 
+
+  
+            }
+        }
+    </script>
+</body>
+</html>
+    
+
+   
